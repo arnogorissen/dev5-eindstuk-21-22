@@ -1,0 +1,15 @@
+{
+  "name": "eindstuk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node node.js",
+    "test": "jest --watchAll"
+  },
+  "author": "Arno Gorissen",
+  "license": "MIT",
+  "dependencies": {
+    "postgres": "^1.0.2"
+  }
+}

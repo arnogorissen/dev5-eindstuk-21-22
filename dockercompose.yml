@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  api:
+    build: ./api #de locatie van de dockerfile
+    image: arnogorissen/composeeindstuk #als de naam wordt meegegeven met de image tag kan je dit pushen met de push tag
+    ports:
+      - "3000:3000"
+    depends_on:
+      - pg
+    volumes:
+      - ./api/src:/usr/app/src
+    environment:
+      - PG_CONNECTION_STRING=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@store:${POSTGRES_DB}
+  pg: #is een referentie naar een image online
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - PGDATA=/var/lib/postgres
+    volumes:
+      - ./_volumes/pgdata:/
+
+  
+ 

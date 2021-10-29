@@ -1,0 +1,16 @@
+FROM node:16
+
+WORKDIR /usr/app 
+#kan alles zijn maar dit is conventie
+
+COPY package*.json .
+
+RUN npm install
+#npm i --quiet (of silent) dan wordt er niks van de install weergegeven in de terminal
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
+#docker login
